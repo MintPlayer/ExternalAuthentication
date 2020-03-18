@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ExternalAuth.Web.Controllers
+namespace ExternalAuth.Web.Controllers.Web
 {
-    [ApiController]
+    [Controller]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
@@ -23,7 +24,8 @@ namespace ExternalAuth.Web.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "web-weatherforecast-list")]
+        [Authorize]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
