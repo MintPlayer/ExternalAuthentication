@@ -15,23 +15,25 @@
            [ngClass]="{ show: isExpanded }">
         <ul class="navbar-nav flex-grow">
           <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link text-dark" (click)="onItemSelected()" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            <a class="nav-link text-dark" (click)="onItemSelected()" [routerLink]="['/counter']">Counter</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+            <a class="nav-link text-dark" (click)="onItemSelected()" [routerLink]="['/fetch-data']">Fetch data</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" (click)="toggleLevel1Menu('account')" href="#">
-              Dropdown
+          <li class="nav-item dropdown" [ngClass]="{'show':level1SubMenu === 'account'}">
+            <a class="nav-link dropdown-toggle" [routerLinkActive]="['link-active']" href="" (click)="toggleLevel1Menu('account')">
+              Account
             </a>
             <div class="dropdown-menu" [ngClass]="{'show':level1SubMenu === 'account'}">
-              <a class="dropdown-item" href="#">Login</a>
-              <a class="dropdown-item" href="#">Register</a>
-              <a class="dropdown-item" href="#">Profile</a>
-              <a class="dropdown-item" href="#">Logout</a>
+              <label class="dropdown-item" *ngIf="currentUser !== null">{{ currentUser.userName }}</label>
+              <div class="dropdown-divider" *ngIf="currentUser !== null"></div>
+              <a class="dropdown-item" *ngIf="currentUser === null" (click)="onItemSelected()" [routerLink]="['/account','login']" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">Login</a>
+              <a class="dropdown-item" *ngIf="currentUser === null" (click)="onItemSelected()" [routerLink]="['/account','register']" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">Register</a>
+              <a class="dropdown-item" *ngIf="currentUser !== null" (click)="onItemSelected()" [routerLink]="['/account','profile']" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">Profile</a>
+              <a class="dropdown-item" *ngIf="currentUser !== null" (click)="onLogout()" href="">Logout</a>
             </div>
           </li>
         </ul>

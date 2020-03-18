@@ -29,7 +29,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\components\social-logins\base-login.component.ts" />
+    <None Remove="ClientApp\src\app\entities\login-result.ts" />
+    <None Remove="ClientApp\src\app\entities\user-data.ts" />
+    <None Remove="ClientApp\src\app\entities\user.ts" />
     <None Remove="ClientApp\src\app\entities\weather-forecast.ts" />
+    <None Remove="ClientApp\src\app\helpers\pwa.helper.ts" />
+    <None Remove="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\tsconfig.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,7 +47,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\components\social-logins\base-login.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\login-result.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\user-data.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\entities\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\entities\weather-forecast.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\helpers\pwa.helper.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\guards\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { User } from '../../entities/user';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.scss']
 })
 export class NavMenuComponent {
+
+  //#region IsExpanded
   isExpanded = false;
 
   collapse() {
@@ -15,6 +18,7 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+  //#endregion
 
   level1SubMenu: string = '';
   toggleLevel1Menu(submenu: string) {
@@ -24,5 +28,20 @@ export class NavMenuComponent {
       this.level1SubMenu = submenu;
     }
     return false;
+  }
+
+  @Input() currentUser: User;
+  @Output() logoutClicked: EventEmitter<string> = new EventEmitter();
+  onLogout() {
+    this.logoutClicked.emit();
+    this.itemSelected.emit();
+
+    return false;
+  }
+
+  @Output() itemSelected: EventEmitter<any> = new EventEmitter();
+  onItemSelected() {
+    this.isExpanded = false;
+    this.itemSelected.emit();
   }
 }

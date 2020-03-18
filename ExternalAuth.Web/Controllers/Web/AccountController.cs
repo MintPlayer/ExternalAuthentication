@@ -83,7 +83,7 @@ namespace ExternalAuth.Web.Controllers.Web
 		public async Task<ActionResult> ExternalLogin([FromRoute]string medium, [FromRoute]string provider)
 		{
 			//var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Account", new { medium, provider });
-			var redirectUrl = Url.RouteUrl("web-v2-account-external-connect-callback", new { medium, provider });
+			var redirectUrl = Url.RouteUrl("web-account-external-connect-callback", new { medium, provider });
 			var properties = await accountService.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
 			return Challenge(properties, provider);
 		}

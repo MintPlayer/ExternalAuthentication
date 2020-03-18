@@ -31,7 +31,7 @@ namespace ExternalAuth.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("external-auth"), options => options.MigrationsAssembly("MintPlayer.Data"));
+            optionsBuilder.UseSqlServer(configuration.GetConnectionString("external-auth"), options => options.MigrationsAssembly("ExternalAuth.Data"));
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
