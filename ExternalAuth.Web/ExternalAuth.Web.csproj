@@ -29,7 +29,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\entities\weather-forecast.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ExternalAuth.Data\ExternalAuth.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\entities\weather-forecast.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
