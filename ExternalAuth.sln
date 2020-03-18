@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalAuth.Web", "ExternalAuth.Web\ExternalAuth.Web.csproj", "{6A879411-83A3-46C3-92D5-109072413B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExternalAuth.Data", "ExternalAuth.Data\ExternalAuth.Data.csproj", "{B2F66193-941E-4E86-8251-CDC507B963CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A879411-83A3-46C3-92D5-109072413B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A879411-83A3-46C3-92D5-109072413B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A879411-83A3-46C3-92D5-109072413B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A879411-83A3-46C3-92D5-109072413B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F66193-941E-4E86-8251-CDC507B963CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F66193-941E-4E86-8251-CDC507B963CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F66193-941E-4E86-8251-CDC507B963CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F66193-941E-4E86-8251-CDC507B963CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F4444B2-D67A-4E2F-A3E7-EFC22E9EC9AB}
+	EndGlobalSection
+EndGlobal
