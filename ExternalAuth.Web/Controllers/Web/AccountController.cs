@@ -161,7 +161,7 @@ namespace ExternalAuth.Web.Controllers.Web
 		[HttpGet("add/{medium}/{provider}", Name = "web-account-external-add-challenge")]
 		public async Task<ActionResult> AddExternalLogin([FromRoute]string medium, [FromRoute]string provider)
 		{
-			var redirectUrl = Url.RouteUrl("web-v2-account-external-add-callback", new { medium, provider });
+			var redirectUrl = Url.RouteUrl("web-account-external-add-callback", new { medium, provider });
 			var properties = await accountService.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
 			return Challenge(properties, provider);
 		}

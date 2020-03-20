@@ -1,1 +1,29 @@
-<p>profile works!</p>
+<h1>My profile</h1>
+<app-card>
+  <header>
+    Social logins
+  </header>
+  <content>
+    <div class="container">
+      <div class="form-group row" *ngFor="let provider of loginProviders">
+        <div class="col-md-6 col-lg-4" [ngSwitch]="provider">
+          <ng-container *ngIf="userLogins.indexOf(provider) === -1">
+            <app-microsoft-login class="d-block" *ngSwitchCase="'Microsoft'" [action]="'add'" (LoginSuccessOrFailed)="socialLoginDone($event)"></app-microsoft-login>
+            <app-facebook-login class="d-block" *ngSwitchCase="'Facebook'" [action]="'add'" (LoginSuccessOrFailed)="socialLoginDone($event)"></app-facebook-login>
+            <app-twitter-login class="d-block" *ngSwitchCase="'Twitter'" [action]="'add'" (LoginSuccessOrFailed)="socialLoginDone($event)"></app-twitter-login>
+            <app-google-login class="d-block" *ngSwitchCase="'Google'" [action]="'add'" (LoginSuccessOrFailed)="socialLoginDone($event)"></app-google-login>
+          </ng-container>
+
+          <button *ngIf="userLogins.indexOf(provider) > -1" (click)="removeSocialLogin(provider)" class="btn w-100 btn-warning border-dark">
+            <i class="fa fa-trash-o"></i>
+            Remove {{ provider }} login
+          </button>
+        </div>
+        <div class="col-md-6 col-lg-8 align-self-center">
+          <span *ngIf="userLogins.indexOf(provider) === -1">Add {{ provider }} account</span>
+          <span *ngIf="userLogins.indexOf(provider) > -1">{{ provider }} account registered</span>
+        </div>
+      </div>
+    </div>
+  </content>
+</app-card>

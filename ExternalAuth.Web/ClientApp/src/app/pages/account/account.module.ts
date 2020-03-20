@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SocialLoginsModule } from '../../components/social-logins/social-logins.module';
 import { DirectivesModule } from '../../directives/directives.module';
+import { ControlsModule } from '../../controls/controls.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { DirectivesModule } from '../../directives/directives.module';
   imports: [
     CommonModule,
     FormsModule,
+    ControlsModule,
     DirectivesModule,
     SocialLoginsModule,
     AccountRoutingModule

@@ -7,6 +7,7 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { PagesModule } from './pages/pages.module';
+import { ControlsModule } from './controls/controls.module';
 
 const routes: Routes = [
   { path: '', loadChildren: './pages/pages.module#PagesModule' }
@@ -24,7 +25,8 @@ const routes: Routes = [
       preloadingStrategy: PreloadAllModules
     }),
     ComponentsModule,
-    PagesModule
+    PagesModule,
+    ControlsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
